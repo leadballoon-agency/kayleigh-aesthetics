@@ -8,7 +8,7 @@ export default function TeamSection({ onBookingClick }: TeamSectionProps) {
       name: 'Kayleigh',
       title: 'Lead Nurse & CO2 Specialist',
       credentials: 'RN',
-      image: '/images/img-1.jpg',
+      image: '/images/treatment.jpg',
       bio: 'As a registered nurse with over 10 years of experience in advanced aesthetic treatments, I lead our CO2 laser program with a focus on medical excellence and patient safety.',
       qualifications: [
         'Registered Nurse (RN)',
