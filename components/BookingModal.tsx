@@ -84,43 +84,43 @@ export default function BookingModal({ isOpen, onClose, assessmentData }: Bookin
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center sm:p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
       
-      {/* Modal */}
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden animate-modal-slide-up">
-        {/* Header */}
-        <div className="relative bg-gradient-to-br from-primary-500 to-primary-600 p-8 text-white">
+      {/* Modal - Mobile slides up from bottom, desktop centered */}
+      <div className="relative w-full max-w-2xl bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl overflow-hidden animate-modal-slide-up max-h-[90vh] sm:max-h-[85vh] flex flex-col">
+        {/* Header - Smaller on mobile */}
+        <div className="relative bg-gradient-to-br from-primary-500 to-primary-600 p-5 sm:p-6 lg:p-8 text-white flex-shrink-0">
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 lg:top-6 lg:right-6 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center hover:bg-white/30 transition-colors"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
           
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur rounded-full mb-4">
-              <span className="text-3xl">✨</span>
+            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white/20 backdrop-blur rounded-full mb-2 sm:mb-3 lg:mb-4">
+              <span className="text-2xl sm:text-3xl">✨</span>
             </div>
-            <h2 className="text-3xl font-bold mb-2">Book Your CO2 Laser Treatment</h2>
-            <p className="text-white/90">
-              {assessmentData ? 'Based on your assessment results' : 'Transform your skin with our premium treatment'}
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-1 sm:mb-2">Book Your Treatment</h2>
+            <p className="text-white/90 text-xs sm:text-sm lg:text-base">
+              {assessmentData ? 'Based on your assessment' : 'Premium CO2 laser treatment'}
             </p>
           </div>
           
           {/* Progress Steps */}
-          <div className="flex justify-center mt-6 space-x-2">
+          <div className="flex justify-center mt-3 sm:mt-4 lg:mt-6 space-x-2">
             {[1, 2, 3].map((s) => (
               <div
                 key={s}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  s === step ? 'w-12 bg-white' : s < step ? 'w-6 bg-white/60' : 'w-6 bg-white/30'
+                className={`h-1 sm:h-1.5 rounded-full transition-all duration-300 ${
+                  s === step ? 'w-8 sm:w-10 lg:w-12 bg-white' : s < step ? 'w-4 sm:w-5 lg:w-6 bg-white/60' : 'w-4 sm:w-5 lg:w-6 bg-white/30'
                 }`}
               />
             ))}
@@ -129,69 +129,71 @@ export default function BookingModal({ isOpen, onClose, assessmentData }: Bookin
 
         {/* Success State */}
         {isSuccess ? (
-          <div className="p-12 text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-6">
-              <svg className="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="p-8 sm:p-10 lg:p-12 text-center">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 bg-green-100 rounded-full mb-4 sm:mb-6">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold mb-3">Booking Request Sent!</h3>
-            <p className="text-neutral-600 mb-6">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-2 sm:mb-3">Booking Request Sent!</h3>
+            <p className="text-sm sm:text-base text-neutral-600 mb-4 sm:mb-6 px-4">
               Thank you for your interest. We'll contact you within 24 hours to confirm your appointment.
             </p>
             <div className="inline-flex items-center space-x-2 text-primary-600">
-              <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
-              <span>Redirecting...</span>
+              <span className="text-sm sm:text-base">Redirecting...</span>
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-8">
-            {/* Step 1: Personal Information */}
-            {step === 1 && (
-              <div className="space-y-6 animate-fade-in">
-                <div>
-                  <h3 className="text-xl font-semibold mb-4">Personal Information</h3>
-                  <p className="text-neutral-600 mb-6">Let's start with your contact details</p>
-                </div>
+          <form onSubmit={handleSubmit} className="flex flex-col flex-1 overflow-hidden">
+            {/* Scrollable Content Area */}
+            <div className="flex-1 overflow-y-auto p-6 sm:p-8">
+              {/* Step 1: Personal Information */}
+              {step === 1 && (
+                <div className="space-y-4 sm:space-y-6 animate-fade-in">
+                  <div>
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Personal Information</h3>
+                    <p className="text-sm sm:text-base text-neutral-600 mb-4 sm:mb-6">Let's start with your contact details</p>
+                  </div>
                 
-                {/* Display Assessment Results if Available */}
-                {assessmentData && (
-                  <div className="bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl p-4 mb-6">
-                    <div className="flex items-start">
-                      <div className="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0 mr-3">
-                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                        </svg>
-                      </div>
-                      <div className="flex-1">
-                        <p className="font-semibold text-primary-900 mb-1">Assessment Completed!</p>
-                        <p className="text-sm text-primary-700">
-                          Recommended: <span className="font-medium">{assessmentData.recommendation?.treatment}</span>
-                        </p>
-                        <p className="text-sm text-primary-600">
-                          {assessmentData.recommendation?.price}
-                        </p>
+                  {/* Display Assessment Results if Available */}
+                  {assessmentData && (
+                    <div className="bg-gradient-to-r from-primary-50 to-primary-100 rounded-lg sm:rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+                      <div className="flex items-start">
+                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-primary-500 rounded-full flex items-center justify-center flex-shrink-0 mr-2 sm:mr-3">
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <p className="font-semibold text-primary-900 text-sm sm:text-base mb-0.5 sm:mb-1">Assessment Completed!</p>
+                          <p className="text-xs sm:text-sm text-primary-700">
+                            Recommended: <span className="font-medium">{assessmentData.recommendation?.treatment}</span>
+                          </p>
+                          <p className="text-xs sm:text-sm text-primary-600">
+                            {assessmentData.recommendation?.price}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                )}
+                  )}
                 
-                <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                    placeholder="Enter your full name"
-                  />
-                </div>
+                  <div>
+                    <label className="block text-xs sm:text-sm font-medium text-neutral-700 mb-1.5 sm:mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-neutral-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm sm:text-base"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
                 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -226,14 +228,14 @@ export default function BookingModal({ isOpen, onClose, assessmentData }: Bookin
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-neutral-700 mb-2">
+                  <label className="block text-xs sm:text-sm font-medium text-neutral-700 mb-1.5 sm:mb-2">
                     Have you had a consultation before?
                   </label>
                   <select
                     name="hasConsultedBefore"
                     value={formData.hasConsultedBefore}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-neutral-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-neutral-200 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-sm sm:text-base"
                   >
                     <option value="">Please select</option>
                     <option value="yes">Yes, with Kayleigh</option>
@@ -242,14 +244,14 @@ export default function BookingModal({ isOpen, onClose, assessmentData }: Bookin
                   </select>
                 </div>
               </div>
-            )}
+              )}
 
-            {/* Step 2: Treatment Details */}
-            {step === 2 && (
-              <div className="space-y-6 animate-fade-in">
+              {/* Step 2: Treatment Details */}
+              {step === 2 && (
+              <div className="space-y-4 sm:space-y-6 animate-fade-in">
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">Treatment Details</h3>
-                  <p className="text-neutral-600 mb-6">Tell us about your treatment preferences</p>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Treatment Details</h3>
+                  <p className="text-sm sm:text-base text-neutral-600 mb-4 sm:mb-6">Tell us about your treatment preferences</p>
                 </div>
                 
                 {/* Prompt to take assessment if not completed */}
@@ -366,14 +368,14 @@ export default function BookingModal({ isOpen, onClose, assessmentData }: Bookin
                   </div>
                 </div>
               </div>
-            )}
+              )}
 
-            {/* Step 3: Additional Information */}
-            {step === 3 && (
-              <div className="space-y-6 animate-fade-in">
+              {/* Step 3: Additional Information */}
+              {step === 3 && (
+              <div className="space-y-4 sm:space-y-6 animate-fade-in">
                 <div>
-                  <h3 className="text-xl font-semibold mb-4">Additional Information</h3>
-                  <p className="text-neutral-600 mb-6">Any other details you'd like to share?</p>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">Additional Information</h3>
+                  <p className="text-sm sm:text-base text-neutral-600 mb-4 sm:mb-6">Any other details you'd like to share?</p>
                 </div>
                 
                 <div>
@@ -420,10 +422,10 @@ export default function BookingModal({ isOpen, onClose, assessmentData }: Bookin
                   </label>
                 </div>
               </div>
-            )}
-
-            {/* Navigation Buttons */}
-            <div className="flex justify-between mt-8 pt-6 border-t border-neutral-100">
+              )}
+            </div>
+            {/* Navigation Buttons - Fixed at bottom */}
+            <div className="flex justify-between p-6 sm:p-8 pt-4 sm:pt-6 border-t border-neutral-100 bg-white flex-shrink-0">
               {step > 1 && (
                 <button
                   type="button"
