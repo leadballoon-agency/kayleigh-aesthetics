@@ -4,20 +4,21 @@ interface AboutSectionProps {
 
 export default function AboutSection({ onBookingClick }: AboutSectionProps) {
   return (
-    <section id="about" className="py-24 bg-white">
+    <section id="about" className="py-12 sm:py-16 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto section-padding">
-        <div className="text-center mb-16">
-          <span className="text-primary-600 font-medium tracking-wider uppercase">Meet Your Practitioner</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mt-4">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <span className="text-primary-600 font-medium tracking-wider uppercase text-xs sm:text-sm">Meet Your Practitioner</span>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mt-2 sm:mt-4">
             Expert Care from
-            <span className="block gradient-text">Kayleigh</span>
+            <span className="block gradient-text">Kayleigh, RN</span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <div className="aspect-[4/5] relative">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Mobile: Image at top */}
+          <div className="relative order-1 lg:order-1">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl sm:shadow-2xl mx-auto max-w-sm lg:max-w-none">
+              <div className="aspect-[4/5] sm:aspect-[4/5] relative">
                 <img 
                   src="/images/img-1.jpg" 
                   alt="Kayleigh - CO2 Laser Specialist" 
@@ -27,36 +28,40 @@ export default function AboutSection({ onBookingClick }: AboutSectionProps) {
               </div>
             </div>
             
-            <div className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs">
-              <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center">
-                  <span className="text-2xl">🏆</span>
+            {/* Badge - Positioned differently on mobile */}
+            <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-4 sm:p-6 max-w-[200px] sm:max-w-xs">
+              <div className="flex items-center space-x-3 sm:space-x-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center">
+                  <span className="text-xl sm:text-2xl">🏆</span>
                 </div>
                 <div>
-                  <p className="font-bold text-lg">10+ Years</p>
-                  <p className="text-neutral-600">CO2 Expert</p>
+                  <p className="font-bold text-base sm:text-lg">10+ Years</p>
+                  <p className="text-sm sm:text-base text-neutral-600">CO2 Expert</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div>
+          <div className="space-y-4 sm:space-y-6 order-2 lg:order-2">
+            <div className="lg:hidden text-center">
+              <h3 className="font-display text-2xl sm:text-3xl font-bold">
+                Lead Nurse & CO2 Specialist
+              </h3>
+            </div>
+            <div className="hidden lg:block">
               <h3 className="font-display text-3xl font-bold">
                 Kayleigh, RN
                 <span className="block text-xl text-primary-600 font-normal mt-2">Lead Nurse & CO2 Laser Specialist</span>
               </h3>
             </div>
 
-            <p className="text-lg text-neutral-600 leading-relaxed">
+            <p className="text-base sm:text-lg text-neutral-600 leading-relaxed">
               As a registered nurse with over a decade of experience in advanced aesthetic treatments, I specialize 
-              in CO2 laser resurfacing to help you achieve remarkable skin transformation. My medical background 
-              ensures the highest standards of safety and care throughout your treatment journey.
+              in CO2 laser resurfacing to help you achieve remarkable skin transformation.
             </p>
 
-            <p className="text-lg text-neutral-600 leading-relaxed">
-              I understand that each patient's skin is unique. That's why I tailor every treatment plan to 
-              your specific needs and goals, ensuring safe and effective results.
+            <p className="text-base sm:text-lg text-neutral-600 leading-relaxed">
+              My medical background ensures the highest standards of safety and care throughout your treatment journey.
             </p>
 
             <div className="space-y-3">
@@ -68,20 +73,20 @@ export default function AboutSection({ onBookingClick }: AboutSectionProps) {
                   'Laser Safety Officer',
                   'Continuous Professional Development'
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center text-neutral-700">
-                    <svg className="w-5 h-5 text-primary-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <li key={index} className="flex items-start sm:items-center text-neutral-700">
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5 text-primary-500 mr-2 flex-shrink-0 mt-0.5 sm:mt-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-sm">{item}</span>
+                    <span className="text-xs sm:text-sm">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="pt-6">
+            <div className="pt-4 sm:pt-6">
               <button 
                 onClick={onBookingClick}
-                className="inline-flex items-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-full font-medium text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-medium text-base sm:text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
               >
                 Book Your Consultation
                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

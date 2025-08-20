@@ -93,54 +93,54 @@ export default function AssessmentTool({ onBookingClick, onAssessmentComplete }:
   }
 
   return (
-    <section id="assessment" className="py-16 sm:py-20 md:py-24 bg-gradient-to-b from-white to-primary-50">
+    <section id="assessment" className="py-12 sm:py-16 md:py-24 bg-gradient-to-b from-white to-primary-50">
       <div className="max-w-4xl mx-auto section-padding">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-100 to-primary-200 rounded-full mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-primary-100 to-primary-200 rounded-full mb-3">
             <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse mr-2"></span>
-            <span className="text-primary-700 font-medium text-sm">AI-Powered Assessment</span>
+            <span className="text-primary-700 font-medium text-xs sm:text-sm">AI-Powered Assessment</span>
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
             Find Your Perfect
             <span className="gradient-text"> Treatment</span>
           </h2>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Answer a few questions to receive personalized CO2 laser recommendations
+          <p className="text-sm sm:text-base lg:text-lg text-neutral-600 max-w-2xl mx-auto px-4">
+            Answer 3 quick questions for personalized recommendations
           </p>
         </div>
 
-        <div className="bg-white rounded-3xl shadow-premium p-8 md:p-12">
+        <div className="bg-white rounded-2xl sm:rounded-3xl shadow-premium p-6 sm:p-8 md:p-12">
           {step <= questions.length && currentQuestion ? (
             <>
               {/* Progress Bar */}
-              <div className="mb-8">
+              <div className="mb-6 sm:mb-8">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm text-neutral-600">Step {step} of {questions.length}</span>
-                  <span className="text-sm text-neutral-600">{Math.round((step / questions.length) * 100)}%</span>
+                  <span className="text-xs sm:text-sm text-neutral-600">Step {step} of {questions.length}</span>
+                  <span className="text-xs sm:text-sm text-neutral-600">{Math.round((step / questions.length) * 100)}%</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
+                <div className="w-full bg-gray-200 rounded-full h-1.5 sm:h-2">
                   <div 
-                    className="bg-gradient-to-r from-primary-400 to-primary-600 h-2 rounded-full transition-all duration-500"
+                    className="bg-gradient-to-r from-primary-400 to-primary-600 h-full rounded-full transition-all duration-500"
                     style={{ width: `${(step / questions.length) * 100}%` }}
                   ></div>
                 </div>
               </div>
 
               {/* Question */}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">{currentQuestion?.question}</h3>
+              <div className="text-center mb-6 sm:mb-8">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-bold">{currentQuestion?.question}</h3>
               </div>
 
-              {/* Options */}
-              <div className="grid grid-cols-2 gap-4">
+              {/* Options - Mobile Optimized */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {currentQuestion?.options.map((option) => (
                   <button
                     key={option.value}
                     onClick={() => handleAnswer(option.value)}
-                    className="group relative bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-primary-500 hover:shadow-lg transition-all duration-300 hover:scale-105"
+                    className="group relative bg-white border-2 border-gray-200 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-primary-500 hover:shadow-lg transition-all duration-300 hover:scale-105 flex sm:flex-col items-center sm:items-center text-left sm:text-center"
                   >
-                    <div className="text-4xl mb-3">{option.icon}</div>
-                    <p className="font-medium text-neutral-700 group-hover:text-primary-600">
+                    <div className="text-3xl sm:text-4xl mr-4 sm:mr-0 sm:mb-3">{option.icon}</div>
+                    <p className="font-medium text-sm sm:text-base text-neutral-700 group-hover:text-primary-600">
                       {option.label}
                     </p>
                   </button>
@@ -150,36 +150,39 @@ export default function AssessmentTool({ onBookingClick, onAssessmentComplete }:
           ) : (
             /* Results */
             <div className="text-center animate-slide-up">
-              <div className="w-20 h-20 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-4xl">✨</span>
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                <span className="text-3xl sm:text-4xl">✨</span>
               </div>
               
-              <h3 className="text-2xl font-bold mb-4">Your Personalized Recommendation</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Your Recommendation</h3>
               
-              <div className="bg-gradient-to-br from-primary-50 to-white rounded-2xl p-8 mb-6">
-                <h4 className="text-xl font-bold text-primary-600 mb-2">
+              <div className="bg-gradient-to-br from-primary-50 to-white rounded-xl sm:rounded-2xl p-6 sm:p-8 mb-4 sm:mb-6">
+                <h4 className="text-lg sm:text-xl font-bold text-primary-600 mb-2">
                   {getRecommendation().treatment}
                 </h4>
-                <p className="text-3xl font-bold gradient-text mb-3">
+                <p className="text-2xl sm:text-3xl font-bold gradient-text mb-2 sm:mb-3">
                   {getRecommendation().price}
                 </p>
-                <p className="text-neutral-600">
+                <p className="text-sm sm:text-base text-neutral-600">
                   {getRecommendation().description}
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 <button 
                   onClick={onBookingClick}
-                  className="inline-flex items-center justify-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-full font-medium hover:shadow-xl transition-all duration-300 hover:scale-105"
+                  className="w-full inline-flex items-center justify-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 sm:py-4 rounded-full font-medium hover:shadow-xl transition-all duration-300 hover:scale-105"
                 >
-                  Book Consultation
+                  Book Now
+                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </button>
                 <button
                   onClick={() => {setStep(1); setAnswers({})}}
-                  className="inline-flex items-center justify-center border-2 border-primary-500 text-primary-600 px-8 py-4 rounded-full font-medium hover:bg-primary-50 transition-all duration-300"
+                  className="w-full inline-flex items-center justify-center text-primary-600 text-sm font-medium hover:text-primary-700 transition-all duration-300"
                 >
-                  Retake Assessment
+                  ← Start Over
                 </button>
               </div>
             </div>

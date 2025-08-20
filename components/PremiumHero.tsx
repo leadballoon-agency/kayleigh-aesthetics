@@ -4,7 +4,7 @@ interface PremiumHeroProps {
 
 export default function PremiumHero({ onBookingClick }: PremiumHeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       {/* Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100">
         <div className="absolute inset-0 opacity-30">
@@ -18,87 +18,90 @@ export default function PremiumHero({ onBookingClick }: PremiumHeroProps) {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32">
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
-          <div className="space-y-6 sm:space-y-8 animate-slide-up">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-4 sm:space-y-6 lg:space-y-8 animate-slide-up text-center lg:text-left">
             {/* Premium Badge */}
-            <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 rounded-full">
+            <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 rounded-full mx-auto lg:mx-0">
               <span className="w-2 h-2 bg-primary-500 rounded-full animate-pulse mr-2"></span>
               <span className="text-primary-700 font-medium text-xs sm:text-sm">Advanced CO2 Laser Treatment</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1]">
               Transform Your
-              <span className="block gradient-text mt-1 sm:mt-2">Skin Today</span>
+              <span className="block gradient-text mt-1">Skin Today</span>
             </h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed">
-              Experience the gold standard in laser skin rejuvenation with Kayleigh's expert CO2 treatments. 
-              Dramatic results for wrinkles, scars, and complete skin transformation.
+            <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              Experience the gold standard in laser skin rejuvenation with Kayleigh's expert CO2 treatments.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
               <button 
                 onClick={onBookingClick}
-                className="inline-flex items-center justify-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 sm:py-3.5 rounded-full font-medium text-sm sm:text-base hover:shadow-xl transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-7 py-3.5 rounded-full font-medium text-base hover:shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
               >
-                Start Consultation
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                Book Now - £150
+                <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </button>
               <a 
                 href="#assessment" 
-                className="inline-flex items-center justify-center border-2 border-primary-500 text-primary-600 px-6 py-3 sm:py-3.5 rounded-full font-medium text-sm sm:text-base hover:bg-primary-50 transition-all duration-300"
+                className="inline-flex items-center justify-center border-2 border-primary-500 text-primary-600 px-7 py-3.5 rounded-full font-medium text-base hover:bg-primary-50 transition-all duration-300 w-full sm:w-auto"
               >
                 Take Assessment
               </a>
             </div>
 
             {/* Social Proof - Mobile Optimized */}
-            <div className="flex items-center justify-center sm:justify-start space-x-4 sm:space-x-6 pt-3 sm:pt-4">
+            <div className="flex items-center justify-center lg:justify-start space-x-6 pt-2">
               <div className="text-center">
-                <div className="flex text-yellow-400 text-sm sm:text-base">
-                  ★★★★★
-                </div>
-                <p className="text-xs sm:text-sm text-neutral-600">5.0 Rating</p>
+                <p className="text-2xl font-bold text-primary-600">RN</p>
+                <p className="text-xs text-neutral-600">Nurse-Led</p>
               </div>
               <div className="text-neutral-300">|</div>
               <div className="text-center">
-                <p className="text-xl sm:text-2xl font-bold text-primary-600">10+</p>
-                <p className="text-xs sm:text-sm text-neutral-600">Years Exp.</p>
+                <p className="text-2xl font-bold text-primary-600">10+</p>
+                <p className="text-xs text-neutral-600">Years Exp.</p>
               </div>
-              <div className="text-neutral-300 hidden sm:block">|</div>
-              <div className="text-center hidden sm:block">
-                <p className="text-xl sm:text-2xl font-bold text-primary-600">RN</p>
-                <p className="text-xs sm:text-sm text-neutral-600">Nurse-Led</p>
+              <div className="text-neutral-300">|</div>
+              <div className="text-center">
+                <p className="text-2xl font-bold text-primary-600">£150</p>
+                <p className="text-xs text-neutral-600">Starting</p>
               </div>
             </div>
           </div>
 
-          {/* Hero Image Section - Mobile Optimized */}
-          <div className="relative mt-8 lg:mt-0">
-            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] flex items-center justify-center p-4 sm:p-6 lg:p-8">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100 rounded-2xl sm:rounded-3xl"></div>
+          {/* Mobile Image Section - Simple and Clean */}
+          <div className="relative mt-8 lg:hidden">
+            <div className="relative mx-auto max-w-[320px]">
+              <img 
+                src="/images/home1.jpg" 
+                alt="CO2 Laser Treatment" 
+                className="rounded-2xl shadow-xl w-full"
+              />
+              <div className="absolute -top-2 -right-2 bg-white rounded-lg shadow-lg p-2">
+                <p className="text-lg font-bold gradient-text">RN</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Image Section */}
+          <div className="relative mt-8 lg:mt-0 hidden lg:block">
+            <div className="relative h-[600px] flex items-center justify-center p-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100 rounded-3xl"></div>
               
               <div className="relative flex items-center justify-center h-full w-full">
                 {/* Main Image */}
-                <div className="relative w-full max-w-sm sm:max-w-md">
+                <div className="relative w-full max-w-md">
                   <img 
                     src="/images/home1.jpg" 
                     alt="CO2 Laser Treatment" 
-                    className="rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl w-full lg:animate-float"
+                    className="rounded-2xl shadow-2xl w-full animate-float"
                   />
-                  
-                  {/* Price Badge - Mobile */}
-                  <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-2 sm:p-3 lg:hidden">
-                    <div className="text-center">
-                      <p className="text-xs font-medium">From</p>
-                      <p className="text-lg sm:text-xl font-bold">£150</p>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -124,11 +127,14 @@ export default function PremiumHero({ onBookingClick }: PremiumHeroProps) {
         </div>
       </div>
 
-      {/* Scroll Indicator - Hidden on Mobile */}
-      <div className="hidden sm:block absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+      {/* Scroll Indicator - Visible on all devices */}
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 animate-bounce">
+        <div className="flex flex-col items-center">
+          <span className="text-xs text-neutral-500 mb-2">Scroll to explore</span>
+          <svg className="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </div>
     </section>
   )

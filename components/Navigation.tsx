@@ -7,19 +7,26 @@ interface NavigationProps {
 }
 
 export default function Navigation({ onBookingClick }: NavigationProps) {
+  const [isVisible, setIsVisible] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      const currentScrollY = window.scrollY
+      // Show nav when scrolled past 100px
+      setIsVisible(currentScrollY > 100)
+      // Add background when scrolled past 50px
+      setIsScrolled(currentScrollY > 50)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+    <nav className={`fixed w-full z-50 transition-all duration-500 ${
+      isVisible ? 'top-0' : '-top-24'
+    } ${
       isScrolled ? 'bg-white/95 backdrop-blur-lg shadow-lg py-4' : 'bg-transparent py-6'
     }`}>
       <div className="max-w-7xl mx-auto section-padding">
