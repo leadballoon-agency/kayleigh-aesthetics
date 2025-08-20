@@ -14,7 +14,7 @@ export default function TeamSection({ onBookingClick }: TeamSectionProps) {
         'Registered Nurse (RN)',
         'Advanced CO2 Certification',
         'Laser Safety Officer',
-        '500+ CO2 Treatments'
+        '10+ Years Experience'
       ]
     },
     {
@@ -118,7 +118,7 @@ export default function TeamSection({ onBookingClick }: TeamSectionProps) {
                 <span className="text-2xl">🏆</span>
               </div>
               <h4 className="font-semibold mb-2">Proven Results</h4>
-              <p className="text-sm text-neutral-600">Over 500 successful CO2 treatments delivered</p>
+              <p className="text-sm text-neutral-600">Expert CO2 laser treatments available</p>
             </div>
             <div>
               <div className="w-16 h-16 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-4">

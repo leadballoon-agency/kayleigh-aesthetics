@@ -29,7 +29,11 @@ const faqs = [
   }
 ]
 
-export default function FAQ() {
+interface FAQProps {
+  onBookingClick?: () => void
+}
+
+export default function FAQ({ onBookingClick }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
@@ -78,12 +82,12 @@ export default function FAQ() {
           <p className="text-neutral-600 mb-6">
             Still have questions? We're here to help.
           </p>
-          <a 
-            href="#contact" 
+          <button 
+            onClick={onBookingClick}
             className="inline-flex items-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-full font-medium text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
             Get in Touch
-          </a>
+          </button>
         </div>
       </div>
     </section>

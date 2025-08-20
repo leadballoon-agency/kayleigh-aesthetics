@@ -6,28 +6,28 @@ export default function PremiumTreatments({ onBookingClick }: PremiumTreatmentsP
   const treatments = [
     {
       icon: '✨',
-      title: 'Light CO2 Resurfacing',
-      description: 'Perfect for fine lines and prevention',
-      features: ['3-5 days downtime', 'Gentle treatment', '45-60 minutes', 'Minimal discomfort'],
-      price: 'From £650',
+      title: 'Eye Area Treatment',
+      description: "Target crow's feet and under-eye concerns",
+      features: ['Focused eye treatment', '3-5 days downtime', '30-45 minutes', 'Visible results'],
+      price: '£150',
       gradient: 'from-blue-400 to-cyan-600',
       popular: false
     },
     {
       icon: '🔬',
-      title: 'Medium CO2 Resurfacing',
-      description: 'Ideal for wrinkles and moderate scarring',
-      features: ['5-7 days downtime', 'Dramatic results', '60-90 minutes', 'Visible improvement'],
-      price: 'From £850',
+      title: 'Full Face Treatment',
+      description: 'Complete facial rejuvenation',
+      features: ['Entire face treatment', '5-7 days downtime', '60-90 minutes', 'Dramatic results'],
+      price: '£300',
       gradient: 'from-primary-400 to-primary-600',
       popular: true
     },
     {
       icon: '💎',
-      title: 'Deep CO2 Resurfacing',
-      description: 'Maximum results for severe concerns',
-      features: ['7-10 days downtime', 'Complete transformation', '90-120 minutes', 'Long-lasting results'],
-      price: 'From £1,200',
+      title: '3 Session Package',
+      description: 'Maximum transformation results',
+      features: ['3 full face treatments', 'Spaced 4-6 weeks apart', 'Complete rejuvenation', 'Best value'],
+      price: '£600',
       gradient: 'from-purple-400 to-pink-600',
       popular: false
     }

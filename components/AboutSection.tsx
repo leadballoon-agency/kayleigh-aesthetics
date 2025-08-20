@@ -55,8 +55,8 @@ export default function AboutSection({ onBookingClick }: AboutSectionProps) {
             </p>
 
             <p className="text-lg text-neutral-600 leading-relaxed">
-              Having performed hundreds of successful CO2 laser treatments, I understand that each patient's 
-              skin is unique. That's why I tailor every treatment plan to your specific needs and goals.
+              I understand that each patient's skin is unique. That's why I tailor every treatment plan to 
+              your specific needs and goals, ensuring safe and effective results.
             </p>
 
             <div className="space-y-3">
@@ -66,7 +66,7 @@ export default function AboutSection({ onBookingClick }: AboutSectionProps) {
                   'Registered Nurse (RN)',
                   'Advanced CO2 Certification',
                   'Laser Safety Officer',
-                  '500+ Treatments Performed'
+                  'Continuous Professional Development'
                 ].map((item, index) => (
                   <li key={index} className="flex items-center text-neutral-700">
                     <svg className="w-5 h-5 text-primary-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">

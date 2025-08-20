@@ -44,7 +44,7 @@ export default function AssessmentTool({ onBookingClick, onAssessmentComplete }:
     }
   ]
 
-  const currentQuestion = questions[step - 1]
+  const currentQuestion = step <= questions.length ? questions[step - 1] : null
 
   const handleAnswer = (value: string) => {
     const newAnswers = { ...answers, [step]: value }
@@ -53,6 +53,7 @@ export default function AssessmentTool({ onBookingClick, onAssessmentComplete }:
       setStep(step + 1)
     } else {
       // Show results and emit assessment completion
+      setStep(step + 1) // Move to results view
       const recommendation = getRecommendation(newAnswers)
       onAssessmentComplete?.({
         answers: newAnswers,
@@ -63,23 +64,30 @@ export default function AssessmentTool({ onBookingClick, onAssessmentComplete }:
   }
 
   const getRecommendation = (assessmentAnswers: any = answers) => {
-    if (assessmentAnswers[1] === 'wrinkles' || assessmentAnswers[3] === '50+') {
+    // Recommend based on severity and concerns
+    if (assessmentAnswers[1] === 'wrinkles' && assessmentAnswers[3] === '50+') {
       return {
-        treatment: 'Deep CO2 Resurfacing',
-        price: 'From £1,200',
-        description: 'Maximum results for deep wrinkles and skin laxity'
+        treatment: '3 Session Package',
+        price: '£600',
+        description: 'Best value - complete transformation with 3 full face treatments'
       }
-    } else if (assessmentAnswers[1] === 'scars') {
+    } else if (assessmentAnswers[1] === 'scars' || assessmentAnswers[1] === 'texture') {
       return {
-        treatment: 'Medium CO2 Resurfacing',
-        price: 'From £850',
-        description: 'Ideal for acne scars and texture improvement'
+        treatment: 'Full Face Treatment',
+        price: '£300',
+        description: 'Complete facial rejuvenation for dramatic results'
+      }
+    } else if (assessmentAnswers[1] === 'wrinkles' && assessmentAnswers[2] === 'eyes') {
+      return {
+        treatment: 'Eye Area Treatment',
+        price: '£150',
+        description: "Targeted treatment for crow's feet and under-eye concerns"
       }
     } else {
       return {
-        treatment: 'Light CO2 Resurfacing',
-        price: 'From £650',
-        description: 'Perfect for prevention and minor concerns'
+        treatment: 'Full Face Treatment',
+        price: '£300',
+        description: 'Comprehensive treatment for overall skin improvement'
       }
     }
   }
@@ -102,7 +110,7 @@ export default function AssessmentTool({ onBookingClick, onAssessmentComplete }:
         </div>
 
         <div className="bg-white rounded-3xl shadow-premium p-8 md:p-12">
-          {step <= questions.length ? (
+          {step <= questions.length && currentQuestion ? (
             <>
               {/* Progress Bar */}
               <div className="mb-8">
@@ -120,12 +128,12 @@ export default function AssessmentTool({ onBookingClick, onAssessmentComplete }:
 
               {/* Question */}
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2">{currentQuestion.question}</h3>
+                <h3 className="text-2xl font-bold mb-2">{currentQuestion?.question}</h3>
               </div>
 
               {/* Options */}
               <div className="grid grid-cols-2 gap-4">
-                {currentQuestion.options.map((option) => (
+                {currentQuestion?.options.map((option) => (
                   <button
                     key={option.value}
                     onClick={() => handleAnswer(option.value)}

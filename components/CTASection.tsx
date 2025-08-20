@@ -76,8 +76,8 @@ export default function CTASection({ onBookingClick }: CTASectionProps) {
           <div className="w-px h-12 bg-white/30"></div>
           
           <div className="text-center">
-            <p className="text-2xl font-bold mb-1">500+</p>
-            <p className="text-sm text-white/80">Happy Patients</p>
+            <p className="text-2xl font-bold mb-1">RN</p>
+            <p className="text-sm text-white/80">Nurse-Led</p>
           </div>
           
           <div className="w-px h-12 bg-white/30"></div>

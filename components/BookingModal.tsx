@@ -295,10 +295,9 @@ export default function BookingModal({ isOpen, onClose, assessmentData }: Bookin
                         ⭐ {assessmentData.recommendation.treatment} (Recommended)
                       </option>
                     )}
-                    <option value="full-face">Full Face CO2 Resurfacing</option>
-                    <option value="targeted">Targeted Area Treatment</option>
-                    <option value="acne-scars">Acne Scar Treatment</option>
-                    <option value="wrinkles">Wrinkle Reduction</option>
+                    <option value="eye-area">Eye Area Treatment - £150</option>
+                    <option value="full-face">Full Face Treatment - £300</option>
+                    <option value="three-session">3 Session Package - £600 (Best Value)</option>
                     <option value="consultation">Consultation Only</option>
                   </select>
                 </div>

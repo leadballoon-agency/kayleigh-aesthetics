@@ -32,7 +32,7 @@ export default function PageWrapper() {
         <PremiumTreatments onBookingClick={() => setIsBookingModalOpen(true)} />
         <ResultsGallery onBookingClick={() => setIsBookingModalOpen(true)} />
         <ProcessSection onBookingClick={() => setIsBookingModalOpen(true)} />
-        <FAQ />
+        <FAQ onBookingClick={() => setIsBookingModalOpen(true)} />
         <CTASection onBookingClick={() => setIsBookingModalOpen(true)} />
       </main>
       <Footer />

@@ -18,8 +18,8 @@ export default function PremiumHero({ onBookingClick }: PremiumHeroProps) {
         </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32">
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           <div className="space-y-6 sm:space-y-8 animate-slide-up">
             {/* Premium Badge */}
             <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-100 rounded-full">
@@ -28,9 +28,9 @@ export default function PremiumHero({ onBookingClick }: PremiumHeroProps) {
             </div>
 
             {/* Main Heading */}
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+            <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               Transform Your
-              <span className="block gradient-text mt-2">Skin Today</span>
+              <span className="block gradient-text mt-1 sm:mt-2">Skin Today</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-neutral-600 leading-relaxed">
@@ -57,50 +57,53 @@ export default function PremiumHero({ onBookingClick }: PremiumHeroProps) {
               </a>
             </div>
 
-            {/* Social Proof */}
-            <div className="flex items-center space-x-6 pt-4">
-              <div className="flex items-center space-x-4">
-                <div className="text-center">
-                  <div className="flex text-yellow-400">
-                    ★★★★★
-                  </div>
-                  <p className="text-sm text-neutral-600">5.0 Rating</p>
+            {/* Social Proof - Mobile Optimized */}
+            <div className="flex items-center justify-center sm:justify-start space-x-4 sm:space-x-6 pt-3 sm:pt-4">
+              <div className="text-center">
+                <div className="flex text-yellow-400 text-sm sm:text-base">
+                  ★★★★★
                 </div>
-                <div className="text-neutral-300">|</div>
-                <div className="text-center">
-                  <p className="text-2xl font-bold text-primary-600">500+</p>
-                  <p className="text-sm text-neutral-600">Treatments</p>
-                </div>
+                <p className="text-xs sm:text-sm text-neutral-600">5.0 Rating</p>
+              </div>
+              <div className="text-neutral-300">|</div>
+              <div className="text-center">
+                <p className="text-xl sm:text-2xl font-bold text-primary-600">10+</p>
+                <p className="text-xs sm:text-sm text-neutral-600">Years Exp.</p>
+              </div>
+              <div className="text-neutral-300 hidden sm:block">|</div>
+              <div className="text-center hidden sm:block">
+                <p className="text-xl sm:text-2xl font-bold text-primary-600">RN</p>
+                <p className="text-xs sm:text-sm text-neutral-600">Nurse-Led</p>
               </div>
             </div>
           </div>
 
-          {/* Hero Image Section */}
-          <div className="relative">
-            <div className="relative h-[600px] flex items-center justify-center p-8">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100 rounded-3xl"></div>
+          {/* Hero Image Section - Mobile Optimized */}
+          <div className="relative mt-8 lg:mt-0">
+            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] flex items-center justify-center p-4 sm:p-6 lg:p-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-50 via-white to-primary-100 rounded-2xl sm:rounded-3xl"></div>
               
-              <div className="relative flex items-center justify-center h-full">
+              <div className="relative flex items-center justify-center h-full w-full">
                 {/* Main Image */}
-                <div className="relative">
+                <div className="relative w-full max-w-sm sm:max-w-md">
                   <img 
                     src="/images/home1.jpg" 
                     alt="CO2 Laser Treatment" 
-                    className="rounded-2xl shadow-2xl w-full max-w-md animate-float"
+                    className="rounded-xl sm:rounded-2xl shadow-xl sm:shadow-2xl w-full lg:animate-float"
                   />
                   
-                  {/* Floating Badge */}
-                  <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-xl p-4">
+                  {/* Price Badge - Mobile */}
+                  <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-xl p-2 sm:p-3 lg:hidden">
                     <div className="text-center">
-                      <p className="text-3xl font-bold gradient-text">98%</p>
-                      <p className="text-xs text-neutral-600">Satisfaction</p>
+                      <p className="text-xs font-medium">From</p>
+                      <p className="text-lg sm:text-xl font-bold">£150</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Info Card */}
-              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-lg">
+              {/* Info Card - Desktop Only */}
+              <div className="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-lg">
                 <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-6 shadow-xl">
                   <div className="text-center">
                     <h3 className="text-xl font-bold text-neutral-800 mb-2">Expert CO2 Laser Specialist</h3>
@@ -114,16 +117,16 @@ export default function PremiumHero({ onBookingClick }: PremiumHeroProps) {
               </div>
             </div>
 
-            {/* Decorative Elements */}
-            <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full animate-float opacity-20 blur-2xl"></div>
-            <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-gradient-to-tr from-primary-300 to-primary-500 rounded-full animate-float opacity-20 blur-2xl" style={{animationDelay: '2s'}}></div>
+            {/* Decorative Elements - Hidden on Mobile */}
+            <div className="hidden sm:block absolute -top-6 -right-6 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full animate-float opacity-20 blur-2xl"></div>
+            <div className="hidden sm:block absolute -bottom-6 -left-6 w-32 sm:w-40 h-32 sm:h-40 bg-gradient-to-tr from-primary-300 to-primary-500 rounded-full animate-float opacity-20 blur-2xl" style={{animationDelay: '2s'}}></div>
           </div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <svg className="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      {/* Scroll Indicator - Hidden on Mobile */}
+      <div className="hidden sm:block absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>

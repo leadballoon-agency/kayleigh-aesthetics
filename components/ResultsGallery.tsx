@@ -131,10 +131,10 @@ export default function ResultsGallery({ onBookingClick }: ResultsGalleryProps) 
         {/* Stats Section */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { number: '500+', label: 'Treatments Performed' },
-            { number: '98%', label: 'Patient Satisfaction' },
-            { number: '5★', label: 'Average Rating' },
-            { number: '10+', label: 'Years Experience' }
+            { number: '10+', label: 'Years Experience' },
+            { number: 'RN', label: 'Registered Nurse' },
+            { number: '£150', label: 'Starting From' },
+            { number: '2', label: 'Expert Practitioners' }
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <p className="text-3xl font-bold gradient-text mb-2">{stat.number}</p>
